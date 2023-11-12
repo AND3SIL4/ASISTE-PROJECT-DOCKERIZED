@@ -1,0 +1,67 @@
+<mat-tab-group>
+  <mat-tab class="registar_asistencia" label="Registrar asistencia">
+    <p>
+      La fecha de asistencia no puede superar el día actual ni tampoco puede ser
+      de más de 30 dias
+    </p>
+    <form action="" [formGroup]="formAsistencia">
+      <div class="contenedor_select">
+        <mat-form-field>
+          <mat-label>Seleccione el horario</mat-label>
+          <mat-select disableRipple formControlName="horario">
+            <mat-option
+              *ngFor="let horario of horarios"
+              [value]="horario.horario_id"
+            >
+              {{ horario.dia }} - {{ horario.salon }} - {{ horario.asignatura }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="contenedor_date_pick">
+        <label for="fecha">Selecciona una fecha:</label>
+        <input
+          formControlName="date"
+          type="date"
+          id="fecha"
+          name="fecha"
+          [(ngModel)]="selectedDate"
+          (input)="onDateChange()"
+        />
+
+        <p class="error_message" *ngIf="isDateInvalid">
+          La fecha seleccionada no es válida.
+        </p>
+      </div>
+
+      <div class="contenedor_radio">
+        <mat-radio-group
+          formControlName="presente"
+          aria-label="Select an option"
+        >
+          <mat-radio-button value="Asiste" color="primary"
+            >Asiste</mat-radio-button
+          >
+          <mat-radio-button value="Retardo" color="warn"
+            >Retardo</mat-radio-button
+          >
+          <mat-radio-button value="Falla">Falla</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <button
+        mat-flat-button
+        color="primary"
+        [disabled]="!formAsistencia.valid"
+        (click)="onClickToCreateAsistencia()"
+        [mat-dialog-close]="true"
+      >
+        GUARDAR ASISTENCIA
+      </button>
+    </form>
+  </mat-tab>
+  <mat-tab label="Editar asistencia">
+    <!-- Aqui va el componente de editar asisitencia -->
+    <app-editar-asistencia></app-editar-asistencia>
+  </mat-tab>
+</mat-tab-group>

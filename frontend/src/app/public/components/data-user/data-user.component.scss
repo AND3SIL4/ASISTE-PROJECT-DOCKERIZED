@@ -1,0 +1,45 @@
+@import "../../../../config";
+
+.contenedor_user_data {
+  padding: 1rem;
+  gap: 1rem;
+  display: flex;
+  .example-card {
+    width: 50vw;
+    mat-card-header {
+      .example-header-image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $primary-color;
+        background-size: cover;
+        color: white;
+        text-align: center;
+        font-size: 25px;
+      }
+    }
+    mat-card-content {
+      .example-box.cdk-drag-animating {
+        transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+      }
+      .example-chip .cdk-drop-list-dragging {
+        transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+      }
+      p {
+        color: grey;
+      }
+    }
+  }
+  mat-tab-group {
+    width: 50vw;
+    form {
+      margin-top: 1rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    button {
+      width: 100%;
+    }
+  }
+}

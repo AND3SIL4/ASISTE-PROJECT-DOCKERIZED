@@ -1,0 +1,15 @@
+@import '../../../../config';
+
+button{
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #007BFF; /* Color de fondo del botón */
+  color: #fff; /* Color del texto en el botón */
+  border: none;
+  border-radius: 50%; /* Para hacerlo redondo */
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}

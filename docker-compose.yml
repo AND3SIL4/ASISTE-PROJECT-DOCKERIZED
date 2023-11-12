@@ -1,0 +1,31 @@
+version: "3.9"
+services:
+
+  db:
+    image: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=asiste
+    volumes:
+        - mysql_data
+
+  backend:
+    build: 
+      context: ./backend
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+  
+  frontend:
+    build: ./frontend
+    ports: 
+      - "4200:4200"
+    depends_on:
+      - backend
+
+volumes:
+  - mysql_data:
+

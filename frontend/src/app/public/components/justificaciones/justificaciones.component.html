@@ -1,0 +1,71 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>REGISTRAR JUSTIFICACIÓN DE INASISTENCIA</mat-card-title>
+    <mat-card-subtitle class="description">
+      Por favor ingrese todos los datos de los campos requeridos para poder
+      subir su justificación de inasistencia para posteriormente ser validada
+      por su respectivo instructor
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-card-subtitle> Nombre: {{ nombreAprendiz }} </mat-card-subtitle>
+    <mat-card-subtitle> Documento: {{ documentoAprendiz }} </mat-card-subtitle>
+    <mat-card-subtitle> Ficha: {{ fichaAprendiz }} </mat-card-subtitle>
+    <mat-card-subtitle> ID reporte: {{ idAsistencia }} </mat-card-subtitle>
+    <form action="" [formGroup]="formularioPostNovedad">
+      <mat-form-field>
+        <mat-label>Seleccione el tipo de novedad</mat-label>
+        <mat-select formControlName="tipo_novedad">
+          <mat-option value="Calamidad">Calamidad domestica</mat-option>
+          <mat-option value="Medica">Novedad Medica</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Observaciones frente a la inasistencia</mat-label>
+        <textarea formControlName="observaciones" matInput></textarea>
+      </mat-form-field>
+      <div class="contenedor_input_file">
+        <label for="file"> {{ textLabelFile }} </label>
+        <div class="input-div">
+          <input
+            formControlName="archivo_adjunto"
+            (change)="onFileSelected($event)"
+            class="input"
+            name="file"
+            type="file"
+            id="file"
+          />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="1em"
+            height="1em"
+            stroke-linejoin="round"
+            stroke-linecap="round"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            fill="none"
+            stroke="currentColor"
+            class="icon"
+          >
+            <polyline points="16 16 12 12 8 16"></polyline>
+            <line y2="21" x2="12" y1="12" x1="12"></line>
+            <path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"></path>
+            <polyline points="16 16 12 12 8 16"></polyline>
+          </svg>
+        </div>
+      </div>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button
+      [mat-dialog-close]="true"
+      (click)="onClickSentNovedad()"
+      [disabled]="!formularioPostNovedad.valid"
+      mat-flat-button
+      color="primary"
+      [mat-dialog-close]="true"
+    >
+      GUARDAR REGISTRO
+    </button>
+  </mat-card-actions>
+</mat-card>

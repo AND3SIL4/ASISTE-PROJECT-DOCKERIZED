@@ -1,0 +1,48 @@
+.contenedor_table_novedad {
+  padding: 0.5rem;
+  table {
+    width: 100%;
+    padding: 1rem;
+
+    th {
+      width: auto;
+      &:first-child {
+        width: 1rem;
+      }
+    }
+    td {
+      width: auto;
+      mat-icon{
+        &.valida{
+          color: green;
+        }
+        &.no_valida{
+          color: rgb(251, 105, 105);
+        }
+      }
+      &.valida{
+        color: green;
+        font-weight: bold;
+      }
+      &.no_valida{
+        color: red;
+        font-weight: bold;
+
+      }
+      &:first-child {
+        text-align: center;
+        opacity: 0.5;
+        &:hover{
+          opacity: 1;
+          cursor: pointer;
+        }
+      }
+
+    }
+  }
+
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+}

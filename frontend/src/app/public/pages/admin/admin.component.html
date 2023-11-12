@@ -1,0 +1,79 @@
+<div class="contenedor_formulario_usuarios">
+  <div class="contenedor_centro">
+    <img
+      class="logo_login"
+      src="../../../../assets/images/LOGO-ASISTE-NOMBRE-DERECHA.png"
+      alt="Logo asiste login"
+    />
+
+    <p>
+      En este panel puede crear usuarios
+      <span
+        ><a
+          href="http://127.0.0.1:8000/admin"
+          target="_blank"
+          rel="noopener noreferrer"
+          >click aca para ir al panel de administrador</a
+        ></span
+      >
+    </p>
+    <form action="">
+      <div class="contenedor_documento_username">
+        <app-input
+          [labelContent]="labelContentDocument"
+          [type]="typeDocument"
+          [labelMessage]="labelMessageDocument"
+          [formControl]="documentControl"
+        ></app-input>
+        <app-input
+          [labelContent]="labelContentUsername"
+          [type]="typeUserName"
+          [labelMessage]="labelMessageUserName"
+          [formControl]="userNameControl"
+        ></app-input>
+      </div>
+      <div class="contenedor_nombres">
+        <app-input
+          [labelContent]="labelContentFirstName"
+          [type]="typeFirstName"
+          [labelMessage]="labelMessageFirstName"
+          [formControl]="firtsNameControl"
+        ></app-input>
+        <app-input
+          [labelContent]="labelContentLastName"
+          [type]="typeLastName"
+          [labelMessage]="labelMessageLastName"
+          [formControl]="lastNameControl"
+        ></app-input>
+      </div>
+      <div class="contendor_email_type">
+        <app-input
+          [labelContent]="labelContentEmail"
+          [type]="typeEmail"
+          [labelMessage]="labelMessageEmail"
+          [formControl]="emailControl"
+        ></app-input>
+        <app-select
+          [title]="title"
+          [options]="options"
+          [errorMessage]="errorMessageSelect"
+          [formControl]="userTypeControl"
+        ></app-select>
+      </div>
+      <app-input
+        [labelContent]="labelContentPassword"
+        [type]="typePassword"
+        [labelMessage]="labelMessagePassword"
+        [formControl]="passwordControl"
+      ></app-input>
+      <button
+        mat-flat-button
+        color="primary"
+        (click)="onClickCreateUser()"
+        type="button"
+      >
+        {{ contentButton }}
+      </button>
+    </form>
+  </div>
+</div>

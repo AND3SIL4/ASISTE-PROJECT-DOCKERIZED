@@ -1,0 +1,49 @@
+/***************************************************************
+************************* COLORS CONFIG ************************
+****************************************************************/
+
+// Paleta de color principal
+$color-corporativo: #39A900;
+$color-azul-oscuro: #00324D;
+$color-azul-claro: #82DEF0;
+$color-amarillo: #FFCE40;
+$color-pastel: #FBFBE2;
+$color-fondo-pagina: #F8F9FAFF;
+
+// Paleta de color secundaria
+$color-verde-oscuro: #385C57;
+$color-tierra: #CB7766;
+$primary-color: #0B5ED7;
+
+
+
+/****************************************************************
+************************** FONTS CONFIG ************************
+****************************************************************/
+
+// Fuente principal regular
+@font-face {
+  font-family: 'fuente-primaria';
+  src: url('./assets/fonts/WorkSans-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// Fuente principal italica
+@font-face {
+  font-family: 'fuente-primaria-italica';
+  src: url('./assets/fonts/WorkSans-Italic.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// Fuente principal bold
+@font-face {
+  font-family: 'fuente-primaria-bold';
+  src: url('./assets/fonts/WorkSans-Bold.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// Estilo de fuente secundaria
+$fuente-secundaria: calibri;

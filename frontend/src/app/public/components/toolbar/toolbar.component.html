@@ -1,0 +1,81 @@
+<mat-toolbar class="toolbar">
+  <img
+    routerLink="/"
+    src="../../../../assets/images/LOGO-ASISTE-NEGATIVO.png"
+    alt=""
+  />
+  <!-- <span>{{ userNameToolbar }} - {{ userTypeToolbar }}</span> -->
+  <span *ngIf="isInstructorUser">
+    <a
+      matTooltip="Informacion sobre sus fichas asignadas"
+      mat-flat-button
+      color="primary"
+      routerLink="/home/cards"
+      routerLinkActive="active"
+      >INICIO</a
+    >
+    <!-- <a
+      matTooltip="Informacion sobre sus fichas asignadas"
+      disabled
+      mat-flat-button
+      color="primary"
+      routerLink="/home/lista"
+      routerLinkActive="active"
+      >LLAMAR A LISTA</a
+    > -->
+    <a
+      matTooltip="Verificar novedades de aprendices"
+      mat-flat-button
+      color="primary"
+      routerLink="/home/novedades"
+      routerLinkActive="active"
+    >
+      VER NOVEDADES
+    </a>
+  </span>
+  <span *ngIf="isAprendizUser">
+    <a
+      mat-flat-button
+      color="primary"
+      routerLink="/home/cards"
+      routerLinkActive="active"
+      matTooltip="Informacion sobre sus fichas asignadas"
+      >INICIO</a
+    >
+    <a
+      mat-flat-button
+      color="primary"
+      routerLink="/home/asistencia"
+      routerLinkActive="active"
+      matTooltip="Ver sus registros de asistencia"
+      >VER ASISTENCIA</a
+    >
+    <a
+      matTooltip="Ver sus novedades y justificaciones"
+      mat-flat-button
+      color="primary"
+      routerLink="/home/novedades"
+      routerLinkActive="active"
+      >VER NOVEDADES</a
+    >
+  </span>
+  <span class="example-spacer"></span>
+  <span class="user_name">{{ userName }}</span>
+  <button
+    matTooltip="Ajustes y opciones adicionales"
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with share icon"
+    [matMenuTriggerFor]="beforeMenu"
+  >
+    <mat-icon>settings</mat-icon>
+  </button>
+  <mat-menu #beforeMenu="matMenu" xPosition="before">
+    <a mat-menu-item routerLink="/home/data-user">
+      Editar perfil<mat-icon>perm_identity</mat-icon>
+    </a>
+    <button (click)="handleClickLogOut()" mat-menu-item>
+      Cerrar sesión<mat-icon>exit_to_app</mat-icon>
+    </button>
+  </mat-menu>
+</mat-toolbar>

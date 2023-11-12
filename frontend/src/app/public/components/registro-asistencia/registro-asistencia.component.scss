@@ -1,0 +1,50 @@
+p {
+  color: grey;
+  padding: 0.6rem;
+}
+form {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  .contenedor_select {
+    mat-form-field {
+      width: 100%;
+    }
+  }
+  .contenedor_radio {
+    padding: 0 2rem;
+    mat-radio-group {
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  .contenedor_date_pick {
+    display: flex;
+    flex-direction: column;
+    label {
+      cursor: pointer;
+      opacity: 0.5;
+      &:hover {
+        opacity: 1;
+      }
+    }
+    input {
+      cursor: pointer;
+      margin: 1rem;
+      font-size: 1rem;
+      border: 1px solid grey;
+      padding: 1rem;
+      border-radius: 10px;
+      color: grey;
+    }
+    p {
+      color: red;
+      opacity: 0.6;
+    }
+  }
+  button {
+    margin-top: 1rem;
+    width: 100%;
+  }
+}

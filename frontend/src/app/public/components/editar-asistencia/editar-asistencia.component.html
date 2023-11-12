@@ -1,0 +1,38 @@
+<mat-accordion class="example-headers-align" multi>
+  <mat-expansion-panel *ngFor="let data of datos">
+    <mat-expansion-panel-header>
+      <mat-panel-title> {{ data.status }} </mat-panel-title>
+      <mat-panel-description>
+        {{ data.fecha }}
+        <mat-icon>edit</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <form action="" [formGroup]="formUpdate">
+      <mat-radio-group formControlName="presente" aria-label="Select an option">
+        <mat-radio-button
+          color="primary"
+          value="Novedad"
+          >Novedad</mat-radio-button
+        >
+        <mat-radio-button color="warn" value="Retardo"
+          >Retardo</mat-radio-button
+        >
+        <mat-radio-button color="accent" value="Falla"
+          >Falla</mat-radio-button
+        >
+        <mat-radio-button color="primary" value="Asiste"
+          >Asiste</mat-radio-button
+        >
+      </mat-radio-group>
+    </form>
+    <button
+      (click)="updateAsistance(data.id)"
+      [mat-dialog-close]="true"
+      [disabled]="!formUpdate.valid"
+      mat-flat-button
+      color="primary"
+    >
+      GUARDAR
+    </button>
+  </mat-expansion-panel>
+</mat-accordion>

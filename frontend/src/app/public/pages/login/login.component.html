@@ -1,0 +1,41 @@
+<div class="contendor_login">
+  <img
+    class="imagen_login"
+    src="../../../../assets/images/BRAIN.jpeg"
+    alt="Imagen login"
+  />
+  <div class="contenedor_formulario">
+    <img
+      class="logo_login"
+      src="../../../../assets/images/LOGO-ASISTE-NOMBRE-DERECHA.png"
+      alt="Logo asiste login"
+    />
+    <form action="">
+      <p>
+        Ingrese sus credenciales institucionales correctamente para poder
+        iniciar sesión
+      </p>
+      <app-input
+        [labelContent]="labelContentDocument"
+        [labelMessage]="labelMessageDocument"
+        [type]="typeDocument"
+        [formControl]="documentControl"
+      ></app-input>
+      <app-input
+        [labelContent]="labelContentPassword"
+        [labelMessage]="labelMessagePassword"
+        [type]="typePassword"
+        [formControl]="passwordControl"
+      ></app-input>
+      <!-- <mat-checkbox>Recordar mis crendenciales (preview)</mat-checkbox> -->
+      <button
+        mat-flat-button
+        color="primary"
+        (click)="onClickService()"
+        type="button"
+      >
+        {{ content }}
+      </button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+<mat-form-field class="input_field" appearance="outline">
+  <mat-label>{{ labelContent }}</mat-label>
+  <input matInput [formControl]="formControl" [type]="type" required />
+  <mat-error *ngIf="validacion.invalid">{{ labelMessage }}</mat-error>
+</mat-form-field>

@@ -1,0 +1,246 @@
+<div class="contenedor_user_data">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image">{{ primeraLetra }}</div>
+      <mat-card-title
+        >{{ nombresUsuarioValue }} {{ apellidoUsuarioValue }}</mat-card-title
+      >
+      <mat-card-subtitle>{{ emailValue }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <hr />
+      <div class="contenedor_datos_personales">
+        <p>Datos personales</p>
+        <mat-chip-set
+          class="example-chip"
+          cdkDropList
+          cdkDropListOrientation="horizontal"
+          (cdkDropListDropped)="dropOwnData($event)"
+        >
+          <mat-chip class="example-box" cdkDrag *ngFor="let data of ownData">
+            {{ data.name }}
+          </mat-chip>
+        </mat-chip-set>
+      </div>
+      <hr *ngIf="isAprendizUser" />
+      <div *ngIf="isAprendizUser" class="contenedor_datos_ficha">
+        <p>Datos de ficha</p>
+        <mat-chip-set
+          class="example-chip"
+          cdkDropList
+          cdkDropListOrientation="horizontal"
+          (cdkDropListDropped)="dropFichaData($event)"
+        >
+          <mat-chip class="example-box" cdkDrag *ngFor="let data of fichaData">
+            {{ data.name }}
+          </mat-chip>
+        </mat-chip-set>
+        <p>Datos horarios</p>
+        <mat-chip-set
+          class="example-chip"
+          cdkDropList
+          cdkDropListOrientation="horizontal"
+          (cdkDropListDropped)="dropHorariosData($event)"
+        >
+          <mat-chip
+            class="example-box"
+            cdkDrag
+            *ngFor="let data of horariosData"
+          >
+            {{ data.name }}
+          </mat-chip>
+        </mat-chip-set>
+      </div>
+      <hr />
+      <div class="contenedor_datos_usuario">
+        <p>Datos de usuario</p>
+        <mat-chip-set
+          class="example-chip"
+          cdkDropList
+          cdkDropListOrientation="horizontal"
+          (cdkDropListDropped)="dropUserData($event)"
+        >
+          <mat-chip class="example-box" cdkDrag *ngFor="let data of userData">
+            {{ data.name }}
+          </mat-chip>
+        </mat-chip-set>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-tab-group
+    class="mat_tab_group"
+    mat-stretch-tabs="false"
+    mat-align-tabs="start"
+  >
+    <mat-tab class="mat_tab" label="Datos de usuario">
+      <div class="contenedor_formulario_user_data">
+        <form [formGroup]="formUpdateUserData" class="example-form">
+          <mat-form-field class="example-full-width">
+            <mat-label>Document</mat-label>
+            <input
+              [value]="userDocument"
+              formControlName="document"
+              type="number"
+              matInput
+            />
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Nombres de usuario</mat-label>
+            <input formControlName="first_name" matInput />
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Apellidos de usuario</mat-label>
+            <input formControlName="last_name" matInput />
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Nickname usuario</mat-label>
+            <input formControlName="username" matInput />
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Tipo de usuario</mat-label>
+            <input [value]="userType" formControlName="user_type" matInput />
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Correo electronico</mat-label>
+            <input formControlName="email" matInput type="email" />
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Contraseña</mat-label>
+            <input [formControl]="formControlPass" type="password" matInput />
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Confirmar contraseña</mat-label>
+            <input formControlName="password" type="password" matInput />
+          </mat-form-field>
+        </form>
+        <div class="contenedor_boton">
+          <button
+            [disabled]="!formUpdateUserData.valid"
+            (click)="onUpdateUserData()"
+            color="primary"
+            mat-flat-button
+          >
+            GUARDAR
+          </button>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Datos personales">
+      <div class="contenedor_formulario_user_data">
+        <div class="contenedor_formlario_datos_aprendiz">
+          <form
+            [formGroup]="updateAprendizForm"
+            *ngIf="isAprendizUser"
+            class="example-form"
+          >
+            <mat-form-field>
+              <mat-label>Tipo de documento</mat-label>
+              <mat-select formControlName="tipo_documento">
+                <mat-option
+                  *ngFor="let type of documentTypes"
+                  [value]="type.value"
+                >
+                  {{ type.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <mat-label>Documento</mat-label>
+              <input [value]="documento" disabled type="number" matInput />
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <mat-label>Nombres</mat-label>
+              <input formControlName="nombres_aprendiz" matInput required />
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <mat-label>Apellidos</mat-label>
+              <input formControlName="apellidos_aprendiz" matInput required />
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <mat-label>Correo personal</mat-label>
+              <input
+                formControlName="email_personal_aprendiz"
+                matInput
+                required
+                type="email"
+              />
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <mat-label>Correo institucional</mat-label>
+              <input
+                formControlName="email_institucional_aprendiz"
+                matInput
+                required
+              />
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <mat-label>Número de celular</mat-label>
+              <input
+                formControlName="numero_celular"
+                type="number"
+                matInput
+                required
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Genero</mat-label>
+              <mat-select formControlName="genero_aprendiz">
+                <mat-option
+                  *ngFor="let value of generoAprendiz"
+                  [value]="value.value"
+                >
+                  {{ value.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </form>
+
+          <div *ngIf="isAprendizUser" class="contenedor_boton">
+            <button
+              [disabled]="updateAprendizForm.invalid"
+              (click)="onUpdateAprendiz()"
+              mat-flat-button
+              color="primary"
+            >
+              GUARDAR
+            </button>
+          </div>
+        </div>
+
+        <form
+          [formGroup]="updateDataInstructor"
+          *ngIf="isInstructorUser"
+          class="example-form"
+        >
+          <mat-form-field class="example-full-width">
+            <mat-label>Nombres</mat-label>
+            <input formControlName="nombres_instructor" matInput />
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Apellidos</mat-label>
+            <input formControlName="apellidos_instructor" matInput />
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Correo institucional</mat-label>
+            <input
+              formControlName="email_institucional"
+              type="email"
+              matInput
+            />
+          </mat-form-field>
+        </form>
+        <div *ngIf="isInstructorUser" class="contenedor_boton">
+          <button
+            [disabled]="updateDataInstructor.invalid"
+            (click)="onUpdateInstructor()"
+            mat-flat-button
+            color="primary"
+          >
+            GUARDAR
+          </button>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

@@ -1,0 +1,90 @@
+<div class="contenedor_lista">
+  <mat-form-field>
+    <mat-label>Filtrar</mat-label>
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="Puede filtrar por cualquier dato que aparezca en la tabla"
+      #input
+    />
+  </mat-form-field>
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+      <!-- Document Column -->
+      <ng-container matColumnDef="documento">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>DOCUMENTO</th>
+        <td mat-cell *matCellDef="let row">
+          {{ row.tipo_documento }}. {{ row.documento_aprendiz }}
+        </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>NOMBRE</th>
+        <td mat-cell *matCellDef="let row">{{ row.nombres_aprendiz }}</td>
+      </ng-container>
+
+      <!-- Personal Email Column -->
+      <ng-container matColumnDef="email_personal">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          EMAIL PERSONAL
+        </th>
+        <td mat-cell *matCellDef="let row">
+          {{ row.email_personal_aprendiz }}
+        </td>
+      </ng-container>
+
+      <!-- Inst Email Column -->
+      <ng-container matColumnDef="email_institucional">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>EMAIL SENA</th>
+        <td mat-cell *matCellDef="let row">
+          {{ row.email_institucional_aprendiz }}
+        </td>
+      </ng-container>
+
+      <!-- Phone Number Column -->
+      <ng-container matColumnDef="celular">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>CELULAR</th>
+        <td mat-cell *matCellDef="let row">{{ row.numero_celular }}</td>
+      </ng-container>
+
+      <!-- Ficha Column -->
+      <ng-container matColumnDef="ficha">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>FICHA</th>
+        <td mat-cell *matCellDef="let row">{{ row.ficha_aprendiz }}</td>
+      </ng-container>
+
+      <!-- Asistance Column -->
+      <ng-container matColumnDef="asistencia">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>ASISTENCIA</th>
+        <td mat-cell *matCellDef="let row">
+          <button
+            (click)="
+              onClickAsistanceHandle(row.documento_aprendiz, row.ficha_aprendiz)
+            "
+            mat-icon-button
+            aria-label="Example icon-button with a menu"
+          >
+            <mat-icon>check_circle_outline</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+      <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">
+          No se encontró ningún dato relacionado con "{{ input.value }}"
+        </td>
+      </tr>
+    </table>
+
+    <mat-paginator
+      [pageSizeOptions]="[10, 20, 30, 100]"
+      aria-label="Select page of users"
+    ></mat-paginator>
+  </div>
+</div>

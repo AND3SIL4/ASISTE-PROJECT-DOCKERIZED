@@ -1,0 +1,12 @@
+.contenedor_fichas_card {
+  padding: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  .example-card {
+    max-width: 200px;
+    button {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+.contenedor_lista {
+  padding: 0.5rem;
+  table {
+    width: 100%;
+    padding: 1rem;
+
+    th {
+      width: auto;
+    }
+
+    td {
+      width: auto;
+      &:last-child {
+        width: 1rem;
+        text-align: center;
+        opacity: 0.5;
+        button {
+          &:hover {
+            opacity: 1;
+            color: green;
+            font-weight: bold;
+          }
+          &:focus {
+            font-weight: bold;
+            opacity: 1;
+            color: green;
+          }
+        }
+      }
+    }
+  }
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+}

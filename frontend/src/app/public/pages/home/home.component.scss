@@ -1,0 +1,8 @@
+.contendor_principal{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  .contenido_body{
+    flex-grow: 1;
+  }
+}

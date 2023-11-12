@@ -1,0 +1,43 @@
+.contenedor_table_novedad {
+  padding: 0.5rem;
+  table {
+    width: 100%;
+    padding: 1rem;
+
+    th {
+      width: auto;
+    }
+    td {
+      width: auto;
+      &.falla {
+        color: red;
+        font-weight: bold;
+      }
+      &.novedad {
+        font-weight: bold;
+        color: orange;
+      }
+      &.asiste {
+        font-weight: bold;
+        color: green;
+      }
+
+      &:first-child {
+        width: 2rem;
+        text-align: center;
+        mat-icon {
+          cursor: pointer;
+          opacity: 0.5;
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+}
