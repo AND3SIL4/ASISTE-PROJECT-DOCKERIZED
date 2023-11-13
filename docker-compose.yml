@@ -1,6 +1,5 @@
 version: "3.9"
 services:
-
   db:
     image: mysql
     ports:
@@ -9,7 +8,9 @@ services:
       - MYSQL_ROOT_PASSWORD=password
       - MYSQL_DATABASE=asiste
     volumes:
-        - mysql_data
+      - type: volume
+        source: mysql_data
+        target: /var/lib/mysql
 
   backend:
     build: 
@@ -27,5 +28,5 @@ services:
       - backend
 
 volumes:
-  - mysql_data:
+  mysql_data:
 

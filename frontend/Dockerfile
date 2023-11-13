@@ -2,6 +2,10 @@
 
 FROM node:18
 
+RUN curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.22.17 && \
+    ln -s /root/.yarn/bin/yarn /usr/local/bin/yarn && \
+    ln -s /root/.yarn/bin/yarnpkg /usr/local/bin/yarnpkg
+
 WORKDIR /app
 
 COPY package.json .
