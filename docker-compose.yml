@@ -1,25 +1,13 @@
 version: "3.9"
 services:
-  db:
-    image: mysql
-    ports:
-      - "3306:3306"
-    environment:
-      - MYSQL_ROOT_PASSWORD=password
-      - MYSQL_DATABASE=asiste
-    volumes:
-      - type: volume
-        source: mysql_data
-        target: /var/lib/mysql
-
   backend:
     build: 
       context: ./backend
     ports:
       - "8000:8000"
     depends_on:
-      - db
-  
+      - mysql
+ 
   frontend:
     build: ./frontend
     ports: 
@@ -27,6 +15,13 @@ services:
     depends_on:
       - backend
 
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: password'
+      MYSQL_DATABASE: asiste_db
+    volumes:
+      - mysql_data:/var/lib/mysql
+
 volumes:
   mysql_data:
-

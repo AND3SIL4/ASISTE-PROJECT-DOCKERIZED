@@ -114,17 +114,16 @@ WSGI_APPLICATION = "project.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "asiste",
-        "USER": "root",
-        "PASSWORD": "",
-        "PORT": "3306",
-        "HOST": "localhost",
-        'OPTIONS': {
-            'unix_socket': '/var/run/mysqld/mysqld.sock',  # Ruta al socket de MySQL
-        },
+        'NAME': 'asiste_db',
+        'USER': 'root',
+        'PASSWORD': 'password',
+        'HOST': 'mysql',
+        'PORT': '3306',
+        # 'OPTIONS': {
+        #     'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+        # }
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
