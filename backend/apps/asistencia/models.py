@@ -198,7 +198,6 @@ class Novedad(models.Model):
     observaciones = models.TextField(max_length=400)
     archivo_adjunto = models.FileField(upload_to="pdfs/")
     estado_novedad = models.BooleanField(default=False, choices=ESTADO_NOVEDAD_CHOICES)
-    # fecha_novedad = models.DateField(auto_now_add=True) # (Preview)
 
     def __str__(self):
         return f"{self.tipo_novedad} {self.id_novedad}"

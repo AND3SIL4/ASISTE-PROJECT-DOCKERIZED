@@ -18,11 +18,10 @@ COPY yarn.lock .
 RUN npm cache clean --force
 
 # Instalar las dependencias locales y Angular CLI
-RUN yarn install
-RUN yarn global add @angular/cli
+RUN yarn install --ignore-scripts
+RUN yarn add @angular/cli --ignore-scripts
 
 RUN yarn upgrade
-RUN ng version
 
 # Copiar el resto de la aplicación
 COPY . .
