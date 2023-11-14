@@ -1,20 +1,24 @@
-# Docker file para la construccion del cotenedor backend
+# Dockerfile para la construccion del contenedor backend
 FROM python:3.11
+
+ENV PYTHONUNBUFFERED 1
 
 WORKDIR /app
 
-# Copea los archivos y requerimientos necesarios
-COPY requirements.txt requirements.txt
+# Copia los archivos y requerimientos necesarios
+COPY requirements.txt /app/requirements.txt
 
-# Creacion y activacion de entorno virtual con venv
-RUN python -m venv virt
-ENV PATH="app/virt/bin/$PATH"
-RUN pip install --upgrade pip
+# Crea y activa el entorno virtual con venv
+# RUN python -m venv virt
+# ENV PATH="/app/virt/bin:$PATH"
+# RUN . /app/virt/bin/activate
 
 # Instala las dependencias en el entorno virtual
-RUN pip install --no-cache-dir -r requirements.txt
+# RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
 
-# Copia el resto de la aplicacion 
-COPY . . 
+# Copia el resto de la aplicación
+COPY . /app
 
-EXPOSE 8000
+# Comando para ejecutar la aplicación
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]

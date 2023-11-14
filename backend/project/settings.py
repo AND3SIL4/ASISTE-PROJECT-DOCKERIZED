@@ -112,13 +112,13 @@ WSGI_APPLICATION = "project.wsgi.application"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.mysql",
-        'NAME': "asiste-db",
-        'USER': "root",
-        'PASSWORD': "",
-        'HOST': "database_container",
-        'PORT': "3306" 
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'asiste',
+        'USER': 'root',
+        'PASSWORD': 'password',
+        'HOST': 'db',  # Cambiado a 'db'
+        'PORT': '3306'
     }
 }
 
