@@ -114,11 +114,11 @@ WSGI_APPLICATION = "project.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        'NAME': 'asiste-db',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'mysql',
-        'PORT': 3306, 
+        'NAME': "asiste-db",
+        'USER': "root",
+        'PASSWORD': "",
+        'HOST': "database_container",
+        'PORT': "3306" 
     }
 }
 

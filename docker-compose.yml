@@ -1,5 +1,15 @@
 version: "3.9"
 services:
+  db:
+    image: mysql:latest
+    container_name: database_container
+    environment:
+      MYSQL_DATABASE: asiste-db
+      MYSQL_ALLOW-EMPTY-PASSWORD: "yes"
+    ports: 
+      - "3306:3306"
+    volumes:
+      - ./data/mysql:/var/lib/mysql
   backend:
     build: ./backend
     ports:
@@ -7,19 +17,11 @@ services:
     container_name: django_container
     command: python manage.py runserver 0.0.0.0:8000 
     depends_on:
-      - mysql
-     
+      - db 
+    links:
+      - db
   frontend:
     build: ./frontend
     ports: 
       - "4200:4200"
-    container_name: angular_container
-    
-  mysql:
-    image: mysql:latest
-    environment:
-      MYSQL_DATABASE: asiste-db
-      MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
-    container_name: database_container
-    volumes:
-      - ./data/mysql:/var/lib/mysql
+    container_name: angular_container 
