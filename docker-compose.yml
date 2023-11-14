@@ -5,7 +5,7 @@ services:
     # container_name: database_container
     volumes:
       - ./data:/var/lib/mysql
-    restart: always
+    # restart: always
     ports: 
       - "3307:3306"
     environment:
