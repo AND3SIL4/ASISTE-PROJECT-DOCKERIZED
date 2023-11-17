@@ -1,4 +1,4 @@
-##################### .GITIGNORE FILE FOR DJANGO ##############################
+#################### .GITIGNORE FILE FOR DJANGO ##############################
 #Created by https://www.toptal.com/developers/gitignore/api/django,python
 # Edit at https://www.toptal.com/developers/gitignore?templates=django,python
 
@@ -134,6 +134,7 @@ celerybeat.pid
 
 # Environments
 # .env
+data/
 .venv
 env/
 venv/

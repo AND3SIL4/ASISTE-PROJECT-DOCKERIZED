@@ -21,4 +21,4 @@ RUN yarn install
 COPY . .
 
 EXPOSE 4200
-CMD ["ng", "s"]
+# CMD ["ng", "s"]

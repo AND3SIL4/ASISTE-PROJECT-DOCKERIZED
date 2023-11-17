@@ -1,6 +1,8 @@
 from pathlib import Path
 import os
 import environ
+import time 
+
 
 # protejer informacion sensible
 env = environ.Env()
@@ -111,6 +113,8 @@ WSGI_APPLICATION = "project.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+time.sleep(60)
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -118,7 +122,7 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': 'password',
         'HOST': 'db',  # Cambiado a 'db'
-        'PORT': '3307'
+        'PORT': '3306'
     }
 }
 

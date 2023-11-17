@@ -28,7 +28,8 @@ services:
     # links:
     #   - db
   frontend:
+    command: ng serve --port 4300 --host 0.0.0.0
     build: ./frontend
     ports: 
-      - "4200:4200"
+      - "4300:4300"
     container_name: angular_container 
