@@ -120,7 +120,7 @@ export class RegistroAsistenciaComponent implements OnInit {
 
     // Calcular la fecha limite
     const oneWeekAgo = new Date();
-    oneWeekAgo.setDate(cureentDate.getDate() - 30);
+    oneWeekAgo.setDate(cureentDate.getDate() - 3);
 
     if (selectedDate < oneWeekAgo || selectedDate > cureentDate) {
       this._snackBarService.openSnackBar(

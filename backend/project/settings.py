@@ -79,10 +79,6 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = env.list("CORS_ORIGIN_WHITELIST_DEV")
 # CORS_ALLOW_METHODS, CORS_ALLOW_HEADERS, etc.
 
-# CORS_ALLOWED_ORIGINS = [
-#     "http://frontend:4300",  # Reemplaza con el nombre del contenedor Angular y el puerto correcto
-# ]
-
 # Permite todos los cors
 CORS_ALLOW_ALL_ORIGINS = True
 
