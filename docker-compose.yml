@@ -22,7 +22,6 @@ services:
     restart: always
     ports:
       - "8000:8000"
-    container_name: django_container
     depends_on:
       - db 
     # links:
@@ -32,4 +31,3 @@ services:
     build: ./frontend
     ports: 
       - "4300:4300"
-    container_name: angular_container 
