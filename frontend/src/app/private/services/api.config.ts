@@ -1,4 +1,4 @@
-export const API_ENDPOINT = 'http://backend:8000'; // CABECERA DE SERVIDOR BACKEND
+export const API_ENDPOINT = 'http://localhost:8000'; // CABECERA DE SERVIDOR BACKEND
 
 // ENPOINT PREDICCION SERVICIO AZURE
 export const AZURE_API_ASISSTANT =

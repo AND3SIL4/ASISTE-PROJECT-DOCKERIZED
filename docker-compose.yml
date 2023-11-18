@@ -5,13 +5,10 @@ services:
     # container_name: database_container
     volumes:
       - ./data:/var/lib/mysql
-    # restart: always
     ports: 
       - "3307:3306"
     environment:
       MYSQL_ROOT_PASSWORD: "password"
-      # MYSQL_USER: "root"
-      # MYSQL_PASSWORD: "password"
       MYSQL_DATABASE: "asiste"
     expose:
       - "3306"
@@ -24,8 +21,7 @@ services:
       - "8000:8000"
     depends_on:
       - db 
-    # links:
-    #   - db
+      - frontend
   frontend:
     command: ng serve --port 4300 --host 0.0.0.0
     build: ./frontend
