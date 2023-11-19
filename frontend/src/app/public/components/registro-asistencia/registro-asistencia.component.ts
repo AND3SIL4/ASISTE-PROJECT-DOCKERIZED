@@ -49,6 +49,7 @@ export class RegistroAsistenciaComponent implements OnInit {
   selectedDate!: string;
   isDateInvalid: boolean = false;
 
+  documentoInstructor!: number;
   // Hook para inicializar valores y renderizar informacion de la API
   ngOnInit(): void {
     this._asistenciaService.documentoAprendizAsistencia.subscribe((value) => {
@@ -60,6 +61,7 @@ export class RegistroAsistenciaComponent implements OnInit {
 
     this._generalDataService.getInstructorData().subscribe({
       next: (response) => {
+        this.documentoInstructor = response[0].documento // asignacion de variable
         response.forEach((element) => {
           element.fichas.forEach((e) => {
             e.horario_ficha.forEach((m) => {
@@ -89,7 +91,6 @@ export class RegistroAsistenciaComponent implements OnInit {
 
   // Metodo para crear registro de asistencia
   onClickToCreateAsistencia() {
-    this._generalDataService.documentoInstructor.subscribe((value) => {});
     const body: CrearAsistenciaInterface = {
       ficha_id: this.fichaAprendiz,
       horario_id: this.formAsistencia.value.horario,
@@ -101,7 +102,7 @@ export class RegistroAsistenciaComponent implements OnInit {
     };
 
     this._asistenciaService
-      .postRegistroDeAsistencia(body, 2147483645)
+      .postRegistroDeAsistencia(body, this.documentoInstructor)
       .subscribe({
         next: (response) => {
           this._snackBarService.openSnackBar(

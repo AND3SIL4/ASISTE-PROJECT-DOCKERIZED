@@ -18,7 +18,7 @@ export const routes: Routes = [
     component: GetStartedComponent,
     title: `GET STARTED | ${prefix}`,
   },
-  { path: 'login', component: LoginComponent, title: `Login | ${prefix}` },
+  { path: 'login', component: LoginComponent, title: `LOGIN | ${prefix}` },
   {
     path: 'admin',
     component: AdminComponent,

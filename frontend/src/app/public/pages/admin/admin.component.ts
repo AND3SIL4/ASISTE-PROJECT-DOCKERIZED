@@ -94,7 +94,7 @@ export class AdminComponent {
       )
       .subscribe({
         next: (response: any) => {
-          console.log(response);
+          this.contentButton = 'CREAR USUARIO'
           // Reiniciar los valores de los FormControl
           this.documentControl.reset();
           this.userNameControl.reset();
